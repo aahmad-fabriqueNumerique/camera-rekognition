@@ -1,0 +1,17 @@
+/* body {
+    font-family: "hurmegeometricsans4", "Helvetica Neue", sans-serif;
+    background: url("/assets/images/background.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+} */
+
+
+
+body{
+    
+    background: url("/src/assets/images/background.jpg") no-repeat center center fixed;
+}

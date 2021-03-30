@@ -1,0 +1,109 @@
+<div style="height:100px"></div>
+
+<div 
+*ngIf="index === 5" 
+class="backdrop">
+	<div>
+		<p class="msg-backdrop">Teréga vous remercie de votre coopération. <br/> Veuillez cliquer sur "Retourner à la page d' accueil" pour finir </p>
+	</div>
+	<a routerLink="/">Retourner à la page d'accueil</a>
+</div>
+
+<div class="container col-12 m-auto ">
+	<div class="row mb-4" style="margin-left: 9em">
+        <h2>Prise de vues</h2>
+    </div>
+
+	<div class="row justify-content-around">
+		<div class="text-center" style="position: relative;">
+			<div>
+				<div class="rect-guide-layer">
+					<div class="rect-guide-lines" ></div>
+				</div>
+				<webcam [trigger]="triggerObservable" (imageCapture)="handleImage($event)"></webcam>
+			</div>
+
+			<div class="d-flex justify-content-between">
+
+				<!-- Button Takes Photo -->
+				<button class="btn btn-secondary mb-2 takeShot" 
+						(click)="triggerSnapshot();" 
+						[ngClass]="{'modifier' : modified === true }" >
+						<i class="fa fa-camera"
+						aria-hidden="true"></i> 
+						{{text}}
+				</button>
+
+				<!-- Button reverse cam -->
+				<button class="btn btn-secondary mb-2 renverser" 
+						(click)="showNextWebcam(true);">
+						<i class="fas fa-sync-alt"></i>
+						Changer la caméra
+				</button>
+
+			</div>
+
+		</div>
+		<div>
+			<!-- Snapshot Div where image will be shown -->
+			<div style="width:640px; height:480px" class="border">
+				<div *ngIf="webcamImage">
+					<img [src]="webcamImage.imageAsDataUrl" class="snapshot"/>
+				</div>
+			</div>
+
+			<!-- valider l'image et l'envoyer vers s3 -->
+			<button 			
+				*ngIf="webcamImage" 
+				[disabled]="buttonDisabled" 
+				data-toggle="modal" 
+				data-target="#exampleModal" 
+				class="btn btn-success w-100 my-2 valider"
+				(click)="saveImage()"><i class="fas fa-cloud-upload-alt"></i> 
+				Valider
+			</button>
+		</div>
+
+
+	
+	</div>
+
+
+	<!-- augmenter l'opacité des visages après avoir validé les photos -->
+	<div class="container mt-4">
+		<div class="row justify-content-between">
+			<div class="exp d-flex flex-column align-items-center" [ngClass]="{'fullOp':index>0}">
+				<img src="../../assets/images/model-photos/model-1.png" alt="" style="max-width: 150px;">
+				<div class="check my-2">
+					<i *ngIf="index>0" class="fas fa-check text-success"></i>
+				</div>
+			</div>
+			<div class="exp d-flex flex-column align-items-center" [ngClass]="{'fullOp':index>1}">
+				<img src="../../assets/images/model-photos/model-2.png" alt="" style="max-width: 150px;">
+				<div class="check my-2">
+					<i *ngIf="index>1" class="fas fa-check text-success"></i>
+				</div>
+			</div>
+			<div class="exp d-flex flex-column align-items-center" [ngClass]="{'fullOp':index>2}">
+				<img src="../../assets/images/model-photos/model-3.png" alt="" style="max-width: 150px;">
+				<div class="check my-2">
+					<i *ngIf="index>2" class="fas fa-check text-success"></i>
+				</div>
+			</div>
+			<div class="exp d-flex flex-column align-items-center" [ngClass]="{'fullOp':index>3}">
+				<img src="../../assets/images/model-photos/model-4.png" alt="" style="max-width: 150px;">
+				<div class="check my-2">
+					<i *ngIf="index>3" class="fas fa-check text-success"></i>
+				</div>
+			</div>
+			<div class="exp d-flex flex-column align-items-center" [ngClass]="{'fullOp':index>4}">
+				<img src="../../assets/images/model-photos/model-5.png" alt="" style="max-width: 150px;">
+				<div class="check my-2">
+					<i *ngIf="index>4" class="fas fa-check text-success"></i>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+

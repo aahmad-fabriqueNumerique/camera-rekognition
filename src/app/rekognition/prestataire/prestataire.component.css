@@ -1,0 +1,12 @@
+.flux-direct{
+    background-color: #23A29D;
+    color:white;
+
+}
+.flux-direct:hover{
+    background-color: #23A2C3;
+}
+
+h3,label,input,div {
+    color: #312E63;
+}

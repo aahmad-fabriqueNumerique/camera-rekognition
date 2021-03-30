@@ -1,0 +1,29 @@
+<div style="height: 100px"></div>
+<div class="container">
+    <div class="m-auto" style="border-radius: 15px;">
+        <h4 class="center mr-3">Historique de détections le <span class="h5 font-weight-bold">{{selectedDate}}</span></h4>
+        <div class="form-group">
+            <label for="dateToday" class="mr-1">Sélectionner une date:</label>
+
+            <input type="date" id="dateToday" (change)="updateDate()" [(ngModel)]="selectedDate">
+            <button class="btn btn-danger ml-5" (click)='addData()'>Ajouter des fausses données</button>
+        </div>
+
+        <div class="row align-items-center" style="height: 40px; background-color:#008DD1;">
+            <div class="col-2 text-light">ID</div>
+            <div class="col-2 text-light">SIMILARITÉ</div>
+            <div class="col text-light">DATE</div>
+        </div>
+
+        <div *ngFor="let prestataire of prestataires">
+
+            <div class="row align-items-center border one-prestataire" (click)="navigateToPrestataire(prestataire.userID)"
+                [ngClass]="{'bg-warning': prestataire.similarity < 90 , 'bg-danger text-light': prestataire.similarity < 80 }">
+                <div class="col-2">{{prestataire.userID}}</div>
+                <div class="col-2">{{prestataire.similarity | number}}</div>
+                <div class="col">{{prestataire.date |date:'yyyy-mm-dd, h:mm a'}}</div>
+            </div>
+        </div>
+        
+    </div>
+</div>

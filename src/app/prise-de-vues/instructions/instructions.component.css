@@ -1,0 +1,47 @@
+.title {
+    margin-bottom: 2rem;
+}
+h2, h3, p, li {
+    color: #312E63;
+}
+
+h2 {
+    font-size: 2em;
+    text-transform: uppercase;
+}
+
+h3 {
+    font-size: 1.2em;
+    text-decoration: underline;
+}
+
+p {
+    text-align: justify;
+    font-size: 1em;
+}
+
+ul li{
+    list-style: none;
+}
+
+.model{
+    max-width: 16%;
+    -moz-transform: scale(-1, 1);
+    -o-transform: scale(-1, 1);
+    -webkit-transform: scale(-1, 1);
+    transform: scale(-1, 1);
+}
+
+.img-2{
+    max-width: 30%;
+    -moz-transform: scale(-1, 1);
+    -o-transform: scale(-1, 1);
+    -webkit-transform: scale(-1, 1);
+    transform: scale(-1, 1);
+    bottom: 0;
+}
+
+
+.demarrer-btn {
+    margin-top: 2em;
+}

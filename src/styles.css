@@ -1,0 +1,35 @@
+/* You can add global styles to this file, and also import other style files */
+/* ---------------------------------*\
+// Fonts
+//----------------------------------*/
+
+
+@import '../src/assets/fonts/scss/modules/hurme/_fonts.scss';
+
+ /* primary font */
+h2 {
+    font-family: 'Hurme Geometric Sans 2';
+    font-weight: bold;
+    font-style: normal;
+}
+
+h3, h4, h5 {
+    font-family: 'Hurme Geometric Sans 2';
+    font-weight: 600;
+    font-style: normal;
+}
+
+h3, h4, h5, h2, h3, p, li {
+    color: #312E63;
+}
+
+p, li, button, a {
+    font-family: 'Hurme Geometric Sans 2';
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}

@@ -1,0 +1,112 @@
+.title {
+  margin-bottom: 2rem;
+}
+
+.rect-guide-layer{
+  width:640px; 
+  height:480px; 
+  position: absolute; 
+  z-index: 99
+}
+
+.rect-guide-lines {
+  width:280px; 
+  height:300px; 
+  border: 3px solid white; 
+  transform: translate(60%, 30%);
+  border-style: dashed;
+}
+
+.actionBtn {
+  font-size: 4em;
+  cursor: pointer;
+}
+
+.snapshot {
+  width:640px; 
+  height:480px;
+  border: 3px solid black;
+}
+
+.snapshot img {
+  max-width: 800px;
+  max-height: 800px;
+}
+
+ul.links {
+  padding-bottom: 20px;
+}
+
+.exp {
+  opacity: 0.3;
+}
+
+.fullOp {
+  opacity: 1;
+}
+.takeShot {
+  font-weight: bold;
+  background-color: #19acef !important;
+  border: none !important;
+  width: 18em;
+}
+
+.renverser {
+  font-weight: bold;
+  border: none !important;
+  width: 18em;
+}
+
+.valider, .retour{
+  background-color: #6fbd5c !important;
+  border: none !important;
+  font-weight: bold;
+}
+
+
+.modifier {
+  background-color: #e47c06 !important;
+  border: none !important;
+}
+
+.check {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgb(71, 71, 71);
+  background-color: rgb(230, 230, 230);
+  border-radius: 50%;
+}
+
+
+.backdrop {
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(19, 19, 19, 0.658);
+  z-index: 99;
+}
+
+.backdrop a {
+  color: white;
+  background : green;
+  margin-top: 2rem;
+  padding: 1em;
+  padding-left: 3em;
+  padding-right: 3em;
+  font-size: 2em;
+}
+
+.msg-backdrop{
+  text-align: center;
+  color: #fff; 
+  font-size: 3em;
+  font-weight: bold;
+}
