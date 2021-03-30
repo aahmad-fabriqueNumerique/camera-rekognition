@@ -21,7 +21,7 @@
                 [ngClass]="{'bg-warning': prestataire.similarity < 90 , 'bg-danger text-light': prestataire.similarity < 80 }">
                 <div class="col-2">{{prestataire.userID}}</div>
                 <div class="col-2">{{prestataire.similarity | number}}</div>
-                <div class="col">{{prestataire.date |date:'yyyy-mm-dd, h:mm a'}}</div>
+                <div class="col">{{prestataire.date |date:'yyyy-mm-dd, a'}}</div>
             </div>
         </div>
         

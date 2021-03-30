@@ -1,5 +1,5 @@
 nav {
-    background-color: #008DD1;
+    background-color: #008DD1 !important;
 }
 .nav-item{
     padding:2px;
@@ -15,10 +15,13 @@ a {
 
 a:hover {
     /* color: #312E63; */
-    color:yellow;
+    color:rgb(226, 226, 222);
 }
 
 .fas{
     font-size: 18px;
 }
+
+
+
 
