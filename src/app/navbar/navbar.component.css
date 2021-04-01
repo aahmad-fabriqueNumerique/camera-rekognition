@@ -7,20 +7,24 @@ nav {
 }
 
 a {
-    color: #fff;
+    color: rgb(219, 219, 219);
     /* font-weight:bold; */
     letter-spacing: .1em;
     font-size: 16px;
 }
 
 a:hover {
-    /* color: #312E63; */
-    color:rgb(226, 226, 222);
+    color: #312E63;
 }
 
 .fas{
     font-size: 18px;
 }
+.active{
+    color: white;
+    font-weight:bold;
+}
+
 
 
 

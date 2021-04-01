@@ -8,7 +8,7 @@ const routes : Routes = [
     path: "",
     children: [
       { path: "prestataire", component: PrestataireComponent },
-      // { path: "historique", component: HistoriqueComponent }
+      { path: "detection", component: HistoriqueComponent }
     ]
   }
 ]

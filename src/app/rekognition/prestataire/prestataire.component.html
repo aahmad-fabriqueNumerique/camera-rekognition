@@ -1,31 +1,30 @@
 <div style="height: 100px"></div>
 <div class="container">
-    <div class="col bg-light m-auto mt-5" style="border-radius: 15px;">
-        <h4 class="center mr-3">Historique de détections d'un prestataire le <span class="h5 font-weight-bold">{{selectedDate}}</span></h4>
+    <div class="col-lg-6 col-md-8 col-sm-12 m-auto">
+        <div class="form-group mb-3">
+            <h4 class="text-center mr-3">Historique de <strong>{{prestataireID}}</strong> le <span class="h5 font-weight-bold">{{selectedDate}}</span></h4>
+        </div>
+
         <div class="form-group">
             <label for="dateToday" class="mr-1">Sélectionner une date:</label>
-
             <input type="date" id="dateToday" (change)="newDate()" [(ngModel)]="selectedDate">
-
         </div>
 
         <div class="row text-light align-items-center" style="height: 40px; background-color:#008DD1">
-            <div class="col-2 text-light">ID</div>
-            <div class="col-2 text-light">SIMILARITÉ</div>
-            <div class="col-2 text-light">DATE</div>
+            <div class="col text-light">DATE</div>
+            <div class="col text-light">SIMILARITÉ</div>
         </div>
 
         <div *ngFor="let prestataire of prestataires ">
 
             <div class="row align-items-center border one-prestataire"
                 [ngClass]="{'bg-warning': prestataire.similarity < 90 , 'bg-danger text-light': prestataire.similarity < 80 }">
-                <div class="col-2">{{prestataire.id |date:'yyyy-mm-dd, a'}}</div>
-                <div class="col-2">{{prestataire.Similarity | number}}</div>
-                <div class="col-2">{{prestataire.ExternalImageId}}</div>
+                <div class="col">{{prestataire.id |date:'yyyy-mm-dd, a'}}</div>
+                <div class="col">{{prestataire.Similarity | number}}</div>
             </div>
         </div>
         <div class="my-3">
-            <a class="btn flux-direct" routerLink="/historique">Historique de détections</a>
+            <a class="btn flux-direct" routerLink="/detection">Historique de détections</a>
         </div>
     </div>
 </div>

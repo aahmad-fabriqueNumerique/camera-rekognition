@@ -1,30 +1,32 @@
 <div style="height: 100px"></div>
 <div class="container">
-    <div class="m-auto" style="border-radius: 15px;" >
-        <h4 class="center mr-3">Historique de détections le <span class="h5 font-weight-bold">{{selectedDate}}</span></h4>
+    <div class="col-lg-6 col-md-8 col-sm-12 m-auto">
+        <div class="form-group mb-3">
+            <h4 class="text-center mr-3">Historique de détections le <span
+                    class="h5 font-weight-bold">{{selectedDate}}</span></h4>
+        </div>
+
         <div class="form-group">
             <label for="dateToday" class="mr-1">Sélectionner une date:</label>
 
             <input type="date" id="dateToday" (change)="updateDate()" [(ngModel)]="selectedDate">
             <!--<button class="btn btn-danger ml-5" (click)='addData()'>Ajouter des fausses données</button>-->
         </div>
-        <div class="col-lg-6 col-md-8 col-sm-12">
-            <div class="row align-items-center" style="height: 40px; background-color:#008DD1;">
-                <div class="col-6 text-light">DATE</div>
-                <div class="col-3 text-light text-center">SIMILARITÉ</div>
-                <div class="col-3 text-light text-center">ID</div>
-            </div>
-    
-            <div *ngFor="let prestataire of prestataires">
-                <div class="row align-items-center border one-prestataire" (click)="navigateToPrestataire(prestataire.ExternalImageId)"
-                    [ngClass]="{'bg-warning': prestataire.similarity < 90 , 'bg-danger text-light': prestataire.similarity < 80 }">
-                    <div class="col-6">{{prestataire.id |date:'yyyy-mm-dd, a'}}</div>
-                    <div class="col-3 text-center">{{prestataire.Similarity | number}}</div>
-                    <div class="col-3 text-center">{{prestataire.ExternalImageId}}</div>
-                </div>
-            </div>
 
+        <div class="row align-items-center" style="height: 40px; background-color:#008DD1;">
+            <div class="col text-light">DATE</div>
+            <div class="col text-light text-center">SIMILARITÉ</div>
+            <div class="col text-light text-center">ID</div>
         </div>
-        
+
+        <div *ngFor="let prestataire of prestataires">
+            <div class="row align-items-center border one-prestataire"
+                (click)="navigateToPrestataire(prestataire.ExternalImageId)"
+                [ngClass]="{'bg-warning': prestataire.similarity < 90 , 'bg-danger text-light': prestataire.similarity < 80 }">
+                <div class="col">{{prestataire.id |date:'yyyy-mm-dd, a'}}</div>
+                <div class="col text-center">{{prestataire.Similarity | number}}</div>
+                <div class="col text-center">{{prestataire.ExternalImageId}}</div>
+            </div>
+        </div>
     </div>
 </div>
