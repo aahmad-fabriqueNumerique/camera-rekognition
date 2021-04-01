@@ -1,0 +1,18 @@
+.one-prestataire:hover{
+    font-weight: bolder;
+}
+
+.one-prestataire{
+    height: 30px; 
+    cursor:pointer;
+}
+
+
+
+h3,label,input,div {
+    color: #312E63;
+}
+
+input{
+    width: 200px;
+}

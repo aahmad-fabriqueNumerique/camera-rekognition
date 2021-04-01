@@ -17,6 +17,7 @@ import { PriseDeVuesModule } from './prise-de-vues/prise-de-vues.module';
 import { RekognitionModule } from './rekognition/rekognition.module';
 import { FileUploadService } from './services/file-upload.service';
 import { RekognitionService } from './services/rekognition.service';
+import { MonHistoriqueComponent } from './prise-de-vues/mon-historique/mon-historique.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { RekognitionService } from './services/rekognition.service';
     InstructionsComponent,
     ConditionsComponent,
     HistoriqueComponent,
-    PrestataireComponent  ],
+    PrestataireComponent,
+    MonHistoriqueComponent  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

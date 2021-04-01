@@ -5,7 +5,7 @@ import { RekognitionModule } from './rekognition/rekognition.module';
 
 const routes: Routes = [
   { path: 'prisedevues', loadChildren: ()=> import('./prise-de-vues/prise-de-vues.module').then(module => module.PriseDeVuesModule) },
-  { path: 'rekognition', loadChildren: ()=> import('./rekognition/rekognition.module').then(module => module.RekognitionModule) },
+  // { path: 'rekognition', loadChildren: ()=> import('./rekognition/rekognition.module').then(module => module.RekognitionModule) },
   { path: '', redirectTo: '/', pathMatch: 'full' }
 ];
 

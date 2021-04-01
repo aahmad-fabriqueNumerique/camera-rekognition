@@ -3,6 +3,7 @@ import { Routes, RouterModule } from "@angular/router";
 import { CameraComponent } from "./camera/camera.component";
 import { ConditionsComponent } from "./conditions/conditions.component";
 import { InstructionsComponent } from "./instructions/instructions.component";
+import { MonHistoriqueComponent } from './mon-historique/mon-historique.component';
 
 const routes: Routes = [
   {
@@ -10,7 +11,8 @@ const routes: Routes = [
     children: [
       { path: "conditions", component: ConditionsComponent },
       { path: "instructions", component: InstructionsComponent },
-      { path: "camera", component: CameraComponent }
+      { path: "camera", component: CameraComponent },
+      { path: "historique", component: MonHistoriqueComponent }
     ]
   }
 ];

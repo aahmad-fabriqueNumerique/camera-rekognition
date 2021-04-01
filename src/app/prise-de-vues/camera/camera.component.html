@@ -10,8 +10,9 @@ class="backdrop">
 </div>
 
 <div class="container col-12 m-auto ">
-	<div class="row mb-4" style="margin-left: 9em">
+	<div class="row mb-4" style="margin-left: 8em">
         <h2>Prise de vues</h2>
+		<input *ngIf="!isSaved" type="text" class="ml-3 px-2" placeholder="Saisissez votre ID ..." style="width: 400px;" [(ngModel)]="prestataireID">
     </div>
 
 	<div class="row justify-content-around">
@@ -23,10 +24,11 @@ class="backdrop">
 				<webcam [trigger]="triggerObservable" (imageCapture)="handleImage($event)"></webcam>
 			</div>
 
-			<div class="d-flex justify-content-between">
+			<div class="row justify-content-center">
 
 				<!-- Button Takes Photo -->
 				<button class="btn btn-secondary mb-2 takeShot" 
+						*ngIf="prestataireID !== '' "
 						(click)="triggerSnapshot();" 
 						[ngClass]="{'modifier' : modified === true }" >
 						<i class="fa fa-camera"
@@ -35,11 +37,11 @@ class="backdrop">
 				</button>
 
 				<!-- Button reverse cam -->
-				<button class="btn btn-secondary mb-2 renverser" 
+				<!--<button class="btn btn-secondary mb-2 renverser" 
 						(click)="showNextWebcam(true);">
 						<i class="fas fa-sync-alt"></i>
 						Changer la caméra
-				</button>
+				</button>-->
 
 			</div>
 

@@ -4,11 +4,11 @@ import { Router } from '@angular/router';
 
 
 @Component({
-  selector: 'app-historique',
-  templateUrl: './historique.component.html',
-  styleUrls: ['./historique.component.css']
+  selector: 'app-mon-historique',
+  templateUrl: './mon-historique.component.html',
+  styleUrls: ['./mon-historique.component.css']
 })
-export class HistoriqueComponent implements OnInit {
+export class MonHistoriqueComponent implements OnInit {
 
   prestataires = []
 
@@ -27,7 +27,7 @@ export class HistoriqueComponent implements OnInit {
   getPrestataires() {
     this.rekService.getPrestataires()
       .then(data => this.prestataires = data.Items // retrieve data via promise
-        .filter(prestataire => prestataire.id.slice(0, 10) === this.selectedDate) // filtrer selon date sous format yyyy/mm/dd
+        .filter(prestataire => prestataire.id.slice(0, 10) === this.selectedDate && prestataire.ExternalImageId === this.prestataireID) // filtrer selon date sous format yyyy/mm/dd
         .sort((a, b) => { // trier selon l'email
           if (a.email < b.email) {
             return -1;
@@ -64,5 +64,3 @@ export class HistoriqueComponent implements OnInit {
   }
 
 }
-
-

@@ -23,7 +23,7 @@ export class PrestataireComponent implements OnInit {
     this.prestataireID = this.rekService.id
     console.log(this.prestataireID)
       this.rekService.getPrestataires().then(data => {
-      this.prestataires = data.Items.filter(user => user.userID === this.prestataireID && user.date.slice(0, 10) === this.selectedDate)
+      this.prestataires = data.Items.filter(prestataire => prestataire.ExternalImageId === this.prestataireID && prestataire.id.slice(0, 10) === this.selectedDate)
 
       this.prestataires.sort((a, b) => {
         if (a.date < b.date) {

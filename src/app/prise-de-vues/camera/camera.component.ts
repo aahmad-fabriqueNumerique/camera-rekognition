@@ -3,6 +3,7 @@ import {Subject } from 'rxjs/Subject';
 import {Observable} from 'rxjs/Observable';
 import {WebcamImage, WebcamInitError, WebcamUtil} from 'ngx-webcam';
 import { FileUploadService } from '../../services/file-upload.service';
+import { RekognitionService } from 'src/app/services/rekognition.service';
 
 
 
@@ -15,6 +16,11 @@ import { FileUploadService } from '../../services/file-upload.service';
 export class CameraComponent implements OnInit {
   @Output()
 
+  prestataireID:string = ''
+
+  isSaved:boolean = false
+
+  prestataires = []
 
   id:any
 
@@ -49,8 +55,18 @@ export class CameraComponent implements OnInit {
   nextWebcam: Subject<boolean|string> = new Subject<boolean|string>();
 
 
-  constructor(private fileUploadService:FileUploadService){}
+  constructor(private fileUploadService:FileUploadService, private rekognition:RekognitionService){
+    // this.getPrestataireID()
+  }
   
+  getPrestataireID(){
+    // this.rekognition.getPrestataireID().then(data => console.log(data.Items.find(prestataire => prestataire.id != "111222")))
+    this.rekognition.getPrestataireID().then(data => {
+      this.prestataires = data.Items
+      console.log(this.prestataires)
+    })
+  }
+
   ngOnInit(): void {
     WebcamUtil.getAvailableVideoInputs()
       .then((mediaDevices: MediaDeviceInfo[]) => {
@@ -62,7 +78,9 @@ export class CameraComponent implements OnInit {
     this.trigger.next();
     this.text = "Modifier la photo"
     this.buttonDisabled = false
-    this.modified = true
+    this.modified = true  
+    console.log(this.prestataires)
+
   }
 
   toggleWebcam(): void {
@@ -108,6 +126,7 @@ export class CameraComponent implements OnInit {
       imageForm.set('image', this.fileUploadService.dataURItoBlob(this.base64), fileName);
       let file = imageForm.get('image')
       this.fileUploadService.uploadFile(file)
+      this.isSaved = true
     } 
 
   }

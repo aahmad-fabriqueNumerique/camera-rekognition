@@ -12,16 +12,16 @@
         <div class="row text-light align-items-center" style="height: 40px; background-color:#008DD1">
             <div class="col-2 text-light">ID</div>
             <div class="col-2 text-light">SIMILARITÉ</div>
-            <div class="col text-light">DATE</div>
+            <div class="col-2 text-light">DATE</div>
         </div>
 
         <div *ngFor="let prestataire of prestataires ">
 
             <div class="row align-items-center border one-prestataire"
                 [ngClass]="{'bg-warning': prestataire.similarity < 90 , 'bg-danger text-light': prestataire.similarity < 80 }">
-                <div class="col-2">{{prestataire.userID}}</div>
-                <div class="col-2">{{prestataire.similarity | number}}</div>
-                <div class="col">{{prestataire.date |date:'yyyy-mm-dd, h:mm a'}}</div>
+                <div class="col-2">{{prestataire.id |date:'yyyy-mm-dd, a'}}</div>
+                <div class="col-2">{{prestataire.Similarity | number}}</div>
+                <div class="col-2">{{prestataire.ExternalImageId}}</div>
             </div>
         </div>
         <div class="my-3">
