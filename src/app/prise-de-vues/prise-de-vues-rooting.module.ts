@@ -12,7 +12,7 @@ const routes: Routes = [
       { path: "conditions", component: ConditionsComponent },
       { path: "instructions", component: InstructionsComponent },
       { path: "camera", component: CameraComponent },
-      { path: "historique", component: MonHistoriqueComponent }
+      { path: "mon-historique", component: MonHistoriqueComponent }
     ]
   }
 ];
