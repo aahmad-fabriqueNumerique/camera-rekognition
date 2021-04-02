@@ -22,7 +22,7 @@ export class FileUploadService {
         }
     );
     const params = {
-        Bucket: 'terega-test-image',
+        Bucket: 'faces-terega',
         Key: file.name,
         Body: file,
         ACL: 'public-read',

@@ -1,73 +1,54 @@
 <div style="height:100px"></div>
 
-<div 
-*ngIf="index === 5" 
-class="backdrop">
+<div *ngIf="index === 5" class="backdrop">
 	<div>
-		<p class="msg-backdrop">Teréga vous remercie de votre coopération. <br/> Veuillez cliquer sur "Retourner à la page d' accueil" pour finir </p>
+		<p class="msg-backdrop">Teréga vous remercie de votre coopération. <br /> Veuillez cliquer sur "Retourner à la
+			page d' accueil" pour finir </p>
 	</div>
 	<a routerLink="/">Retourner à la page d'accueil</a>
 </div>
 
-<div class="container col-12 m-auto ">
-	<div class="row mb-4" style="margin-left: 8em">
-        <h2>Prise de vues</h2>
-		<input *ngIf="!isSaved" type="text" class="ml-3 px-2" placeholder="Saisissez votre ID ..." style="width: 400px;" [(ngModel)]="prestataireID">
-    </div>
+<div class="container m-auto bg-light p-5" style="border-radius: 15px;">
+	<div class="mb-4">
+		<h2>Prise de vues</h2>
+	</div>
 
-	<div class="row justify-content-around">
-		<div class="text-center" style="position: relative;">
+	<div class="text-center">
+		<input type="text" class="mb-2 px-2" placeholder="Saisissez votre ID ..." style="width: 400px;"
+			[(ngModel)]="prestataireID">
+	</div>
+
+	<div class="row justify-content-between align-items-center">
+		<div class="text-center col">
+			<div class="m-auto" style="width: 410px; position:relative">
+				<webcam [trigger]="triggerObservable" (imageCapture)="handleImage($event)" width=410></webcam>
+	
+				<div class="rect-guide-lines"></div>
+			</div>
+
 			<div>
-				<div class="rect-guide-layer">
-					<div class="rect-guide-lines" ></div>
-				</div>
-				<webcam [trigger]="triggerObservable" (imageCapture)="handleImage($event)"></webcam>
-			</div>
-
-			<div class="row justify-content-center">
-
-				<!-- Button Takes Photo -->
-				<button class="btn btn-secondary mb-2 takeShot" 
-						*ngIf="prestataireID !== '' "
-						(click)="triggerSnapshot();" 
-						[ngClass]="{'modifier' : modified === true }" >
-						<i class="fa fa-camera"
-						aria-hidden="true"></i> 
-						{{text}}
+				<button class="btn btn-secondary takeShot mb-2" [disabled]="prestataireID == ''" (click)="triggerSnapshot();"
+					[ngClass]="{'modifier' : modified === true }">
+					<i class="fa fa-camera" aria-hidden="true"></i>
+					{{text}}
 				</button>
-
-				<!-- Button reverse cam -->
-				<!--<button class="btn btn-secondary mb-2 renverser" 
-						(click)="showNextWebcam(true);">
-						<i class="fas fa-sync-alt"></i>
-						Changer la caméra
-				</button>-->
-
 			</div>
-
 		</div>
-		<div>
-			<!-- Snapshot Div where image will be shown -->
-			<div style="width:640px; height:480px" class="border">
-				<div *ngIf="webcamImage">
-					<img [src]="webcamImage.imageAsDataUrl" class="snapshot"/>
-				</div>
-			</div>
+		<div class="text-center col " *ngIf="webcamImage">
 
-			<!-- valider l'image et l'envoyer vers s3 -->
-			<button 			
-				*ngIf="webcamImage" 
-				[disabled]="buttonDisabled" 
-				data-toggle="modal" 
-				data-target="#exampleModal" 
-				class="btn btn-success w-100 my-2 valider"
-				(click)="saveImage()"><i class="fas fa-cloud-upload-alt"></i> 
+			<img [src]="webcamImage.imageAsDataUrl" class="snapshot" align="center" />
+			<button *ngIf="webcamImage" [disabled]="buttonDisabled" [disabled]="prestataireID == ''" data-toggle="modal" data-target="#exampleModal"
+				class="btn btn-success valider mt-2" (click)="saveImage()"><i class="fas fa-cloud-upload-alt"></i>
 				Valider
 			</button>
+
+
+			<!-- valider l'image et l'envoyer vers s3 -->
 		</div>
+		
 
 
-	
+
 	</div>
 
 
@@ -107,5 +88,3 @@ class="backdrop">
 		</div>
 	</div>
 </div>
-
-

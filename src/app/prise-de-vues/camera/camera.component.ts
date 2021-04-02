@@ -121,7 +121,7 @@ export class CameraComponent implements OnInit {
       this.modified = false
 
       this.id=Date.now()
-      let fileName = this.id+ '.jpeg'
+      let fileName = this.prestataireID + "_" + this.id+ '.jpeg'
       const imageForm = new FormData();
       imageForm.set('image', this.fileUploadService.dataURItoBlob(this.base64), fileName);
       let file = imageForm.get('image')
