@@ -19,7 +19,7 @@ export class HistoriqueComponent implements OnInit {
 
   // constructor
   constructor(private rekService: RekognitionService, private router: Router) {
-
+    this.selectedDate  =this.rekService.selectedDate
 
   }
 
@@ -41,7 +41,7 @@ export class HistoriqueComponent implements OnInit {
     console.log("prestataires", this.prestataires);
   }
 
-  navigateToPrestataire(id) {
+  navigateToPrestataire(id:string) {
     this.rekService.id = id
     this.router.navigate(['prestataire'])
   }
@@ -50,6 +50,7 @@ export class HistoriqueComponent implements OnInit {
 
   updateDate() {
     console.log(this.selectedDate)
+    this.rekService.selectedDate = this.selectedDate
     this.getPrestataires()
   }
 

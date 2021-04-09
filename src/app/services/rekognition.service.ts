@@ -19,13 +19,14 @@ export class RekognitionService {
   rekognition = new Rekognition(this.awsConfig)
 
   dynamo = new Dynamo.DocumentClient(this.awsConfig)
-  
+
   s3 = new S3(this.awsConfig)
 
   id:string
 
   prestataires=[]
-  
+
+  selectedDate = new Date().toISOString().slice(0, 10)
   constructor() { }
 
   // getListCollections(){
@@ -48,7 +49,7 @@ export class RekognitionService {
 
   getPrestataires() {
     let params = {
-      TableName: 'searchFaceResponse'
+      TableName: 'prestataire'
     }
     return this.dynamo.scan(params).promise()
   }
@@ -99,7 +100,7 @@ export class RekognitionService {
       if (err) console.log(err)
       return JSON.stringify(data, null, 2)
     })
-    
+
   }
-  
+
 }

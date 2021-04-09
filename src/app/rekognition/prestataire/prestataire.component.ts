@@ -16,7 +16,9 @@ export class PrestataireComponent implements OnInit {
 
   selectedDate = new Date().toISOString().slice(0, 10)
 
-  constructor(private rekService:RekognitionService) { }
+  constructor(private rekService:RekognitionService) {
+    this.selectedDate  =this.rekService.selectedDate
+   }
 
 
   getPrestataires(){
@@ -38,7 +40,7 @@ export class PrestataireComponent implements OnInit {
     })
   }
 
-  
+
 
 
 
