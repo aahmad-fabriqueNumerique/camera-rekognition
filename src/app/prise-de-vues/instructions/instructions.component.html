@@ -2,44 +2,40 @@
 
 <div class="container bg-light p-5" style="border-radius: 15px;">
 
-    <div class="row title">
-        <h2>Instructions de prise de vues</h2>
-    </div>
+  <div class="row title">
+    <h2>Instructions de prise de vues</h2>
+  </div>
 
-    <div class="row">
-        <p>Pour obtenir de meilleurs resultats possibles et éventuellement une reconnaissance faciale sure, veuillez respecter les intructions suivantes:</p>
-        <ul>
-            <li>1- Votre distance par rapport à la caméra doit etre à 40 cm</li>
-            <li>2- Votre visage doit etre dans le cadre illustrer sur l’écran</li>
-            <li>3- votre posture doit etre conforme aux postures dans la figure en dessous</li>
-            <li>4- Cinq photos minimum en respectant les postures au dessus doit etre prise (une session de plus de 5 photos sera appreciée)</li>
-            <li>5- essayez au maximum d’avoir une éclairage uniforme sur les deux côtés du visage</li>
-            <li>6- En cas d’erreur, vous avez la possibilité de reprendre la photo</li>
-        </ul>
-
+  <div class="">
+    <p>Pour obtenir de meilleurs resultats possibles et éventuellement une reconnaissance faciale sure, veuillez
+      respecter les intructions suivantes:</p>
+    <div *ngFor="let instruction of instructions" >
+      <p>{{instruction.text}}</p>
     </div>
+  </div>
 
-    <div class="row">
-        <div class="col d-flex justify-content-between mt-5">
-            <img class="model" src="../../assets/images/model-photos/model-1.png" alt="">
-            <img class="model" src="../../assets/images/model-photos/model-2.png" alt="">
-            <img class="model" src="../../assets/images/model-photos/model-3.png" alt="">
-            <img class="model" src="../../assets/images/model-photos/model-4.png" alt="">
-            <img class="model" src="../../assets/images/model-photos/model-5.png" alt="">
-        </div>
-        <div class="row mt-4">
-            <p style="font-weight: bold">Si vous rencontrez un problème technique ou vous avez d'autres questions, veuillez appeler le technicien responsable au 06 17 18 13 91. il sera ravi de répondre à toutes vos questions.</p>
-        </div>
+  <div class="row">
+    <div class="col d-flex justify-content-between mt-5">
+      <img class="model" src="assets/images/model-photos/model-1.png" alt="">
+      <img class="model" src="assets/images/model-photos/model-2.png" alt="">
+      <img class="model" src="assets/images/model-photos/model-3.png" alt="">
+      <img class="model" src="assets/images/model-photos/model-4.png" alt="">
+      <img class="model" src="assets/images/model-photos/model-5.png" alt="">
     </div>
+    <div class="row mt-4">
+      <p style="font-weight: bold">Si vous rencontrez un problème technique ou vous avez d'autres questions, veuillez
+        appeler le technicien responsable au 06 17 18 13 91. il sera ravi de répondre à toutes vos questions.</p>
+    </div>
+  </div>
 
-    <div class="row d-flex justify-content-center demarrer-btn">
-        <button type="button" class="btn btn-success accept" routerLink="/camera">Je démarre la prise de photos</button>
-    </div>
+  <div class="row d-flex justify-content-center demarrer-btn">
+    <button type="button" class="btn btn-success accept" routerLink="/camera">Je démarre la prise de photos</button>
+  </div>
 
 
 </div>
 
 <div class="row d-flex justify-content-between">
-    <img class="img-responsive img-2" src="../../assets/images/illustration-2.png" alt="">
-    <img class="img-responsive" src="../../assets/images/illustration-2.png" alt="">
+  <img class="img-responsive img-2" src="../../assets/images/illustration-2.png" alt="">
+  <img class="img-responsive" src="../../assets/images/illustration-2.png" alt="">
 </div>

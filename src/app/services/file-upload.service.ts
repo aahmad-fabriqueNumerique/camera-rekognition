@@ -9,7 +9,7 @@ import * as env from '../../environments/environment'
 export class FileUploadService {
 
   imageUrl: any
-  
+
   constructor() { }
 
   uploadFile(file) {
@@ -37,7 +37,7 @@ export class FileUploadService {
         return true;
     });
   }
-  
+
   // convertir en blob
   dataURItoBlob(base64:any) {
     let binary = atob(base64.split(',')[1]);

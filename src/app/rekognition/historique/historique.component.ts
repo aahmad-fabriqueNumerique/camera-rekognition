@@ -16,10 +16,13 @@ export class HistoriqueComponent implements OnInit {
 
   selectedDate = new Date().toISOString().slice(0, 10)
 
+  processorStatus:string
+
 
   // constructor
   constructor(private rekService: RekognitionService, private router: Router) {
     this.selectedDate  =this.rekService.selectedDate
+    this.rekService.describeStream().then(res=>this.processorStatus=res.Status)
 
   }
 
@@ -58,11 +61,25 @@ export class HistoriqueComponent implements OnInit {
     this.getPrestataires()
   }
 
+  startStream(){
+    this.rekService.startStream()
+    this.rekService.describeStream().then(res=>this.processorStatus=res.Status)
+  }
+
+  stopStream(){
+    this.rekService.stopStream()
+    this.rekService.describeStream().then(res=>this.processorStatus=res.Status)
+  }
+
   addData(){
     // for (let i=0 ; i<5 ; i++){
     //   this.rekService.addItem()
     // }
   }
+
+  // describeStream(){
+  //   this.rekService.describeStream()
+  // }
 
 }
 

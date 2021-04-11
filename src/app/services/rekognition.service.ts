@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import * as Kinesis from 'aws-sdk/clients/kinesis'
 import * as S3 from 'aws-sdk/clients/s3';
 import * as Dynamo from 'aws-sdk/clients/dynamodb'
 import * as Rekognition from 'aws-sdk/clients/rekognition'
@@ -16,9 +17,18 @@ export class RekognitionService {
     "secretAccessKey": env.environment.credentials.secretAccessKey,
     "region": env.environment.credentials.region
   }
+
+  params = {
+    Name: 'osm-processor' /* required */
+  }
+
+  processorStatus:string
+
   rekognition = new Rekognition(this.awsConfig)
 
   dynamo = new Dynamo.DocumentClient(this.awsConfig)
+
+  kinesis = new Kinesis(this.awsConfig)
 
   s3 = new S3(this.awsConfig)
 
@@ -27,6 +37,7 @@ export class RekognitionService {
   prestataires=[]
 
   selectedDate = new Date().toISOString().slice(0, 10)
+
   constructor() { }
 
   // getListCollections(){
@@ -46,6 +57,30 @@ export class RekognitionService {
   //   return this.s3.getObject(params).promise()
   // }
 
+  stopStream(){
+    this.rekognition.stopStreamProcessor(this.params, function(err, data) {
+      if (err) console.log(err, err.stack); // an error occurred
+      else     this.isRunning = false           // successful response
+    })
+  }
+
+  startStream(){
+    this.rekognition.startStreamProcessor(this.params, function(err, data) {
+      if (err) console.log(err, err.stack); // an error occurred
+      else  this.isRunning = true          // successful response
+    })
+  }
+
+  // describeStream(){
+  //   this.rekognition.describeStreamProcessor(this.params, function(err, data) {
+  //     if (err) console.log(err, err.stack); // an error occurred
+  //     else  this.processorStatus = data.Status  // successful response
+  //   })
+  // }
+
+  describeStream(){
+    return this.rekognition.describeStreamProcessor(this.params).promise()
+  }
 
   getPrestataires() {
     let params = {

@@ -6,7 +6,16 @@
         <h2>Conditions d'utilisation</h2>
     </div>
 
-    <div class="row">
+    <div *ngFor="let condition of conditions">
+      <h3>{{condition.title}}</h3>
+      <div *ngFor="let descr of condition.descr">
+        <p>{{descr.text}}</p>
+        <ul *ngIf="descr.ul">
+          <li *ngFor="let li of descr.ul">{{li.li}}</li>
+        </ul>
+      </div>
+    </div>
+    <!--<div class="row">
         <h3>LE FONCTIONNEMENT DE LA RECONNAISSANCE FACIALE</h3>
         <p>
             Les systèmes de reconnaissance faciale saisissent une image entrante provenant d’une caméra,de manière
@@ -59,7 +68,7 @@
         <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora minus harum officiis. Dolores fugit aliquam consequatur modi, velit ab labore inventore quas. Ex laborum repudiandae commodi, facilis tempore quia quaerat mollitia dolores expedita ratione nihil maxime sapiente perferendis provident numquam dicta, possimus alias.
         </p>
-    </div>
+    </div>-->
     <div class="row justify-content-between">
         <div class="col-6 mt-2">
             <div class="row">
