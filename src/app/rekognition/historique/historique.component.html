@@ -1,14 +1,14 @@
 <div style="height: 100px"></div>
 <div class="container bg-light p-5" style="border-radius: 15px;">
 
+      <div *ngIf="processorStatus === 'STOPPED'">
 
-      <!--<p class="mr-3" [ngClass]="{'text-danger': processorStatus === 'STOPPED',
-                    'text-success' : processorStatus === 'STARTING' || processorStatus === 'RUNNING' }">
-                    Stream Processor is {{processorStatus}}
-      </p>-->
-
-      <button class="btn btn-success btn-sm"
-              *ngIf="processorStatus === 'STOPPED'" (click)="startStream()">Processor is {{processorStatus}} Click to Start</button>
+        <button
+                (click)="startStream()"
+                class="btn btn-success btn-sm">
+                Processor is {{processorStatus}}
+                Click to Start</button>
+      </div>
       <button class="btn btn-danger btn-sm"
               *ngIf="processorStatus !== 'STOPPED'" (click)="stopStream()">Processor is {{processorStatus}} Click to Stop</button>
 

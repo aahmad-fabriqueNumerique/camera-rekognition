@@ -58,25 +58,17 @@ export class RekognitionService {
   // }
 
   stopStream(){
-    this.rekognition.stopStreamProcessor(this.params, function(err, data) {
+    this.rekognition.stopStreamProcessor(this.params, (err, data) => {
       if (err) console.log(err, err.stack); // an error occurred
-      else     this.isRunning = false           // successful response
     })
   }
 
   startStream(){
-    this.rekognition.startStreamProcessor(this.params, function(err, data) {
+    this.rekognition.startStreamProcessor(this.params, (err, data) => {
       if (err) console.log(err, err.stack); // an error occurred
-      else  this.isRunning = true          // successful response
     })
   }
 
-  // describeStream(){
-  //   this.rekognition.describeStreamProcessor(this.params, function(err, data) {
-  //     if (err) console.log(err, err.stack); // an error occurred
-  //     else  this.processorStatus = data.Status  // successful response
-  //   })
-  // }
 
   describeStream(){
     return this.rekognition.describeStreamProcessor(this.params).promise()

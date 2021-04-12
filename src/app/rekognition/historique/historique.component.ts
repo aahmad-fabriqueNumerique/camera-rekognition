@@ -71,16 +71,6 @@ export class HistoriqueComponent implements OnInit {
     this.rekService.describeStream().then(res=>this.processorStatus=res.Status)
   }
 
-  addData(){
-    // for (let i=0 ; i<5 ; i++){
-    //   this.rekService.addItem()
-    // }
-  }
-
-  // describeStream(){
-  //   this.rekService.describeStream()
-  // }
-
 }
 
 
